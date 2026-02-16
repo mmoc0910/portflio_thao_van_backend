@@ -5,6 +5,7 @@ import { Award } from "./models/Award.js";
 import { LatestVideo } from "./models/LatestVideo.js";
 import { FeaturedWork } from "./models/FeaturedWork.js";
 import { HomeIntro } from "./models/HomeIntro.js";
+import { ResumePdf } from "./models/ResumePdf.js";
 
 dotenv.config();
 
@@ -187,6 +188,7 @@ async function seed() {
     LatestVideo.deleteMany({}),
     FeaturedWork.deleteMany({}),
     HomeIntro.deleteMany({}),
+    ResumePdf.deleteMany({}),
   ]);
 
   await Promise.all([
