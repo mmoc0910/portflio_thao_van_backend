@@ -4,6 +4,7 @@ import { PhotoItem } from "./models/PhotoItem.js";
 import { Award } from "./models/Award.js";
 import { LatestVideo } from "./models/LatestVideo.js";
 import { FeaturedWork } from "./models/FeaturedWork.js";
+import { HomeIntro } from "./models/HomeIntro.js";
 
 dotenv.config();
 
@@ -170,6 +171,13 @@ const featuredWork = [
   },
 ];
 
+const homeIntros = [
+  {
+    description:
+      "My name is Van Vo from Quang Ngai, Vietnam, and I am currently a sophomore at The University of Tulsa double majoring in Media Studies and Arts, Culture & Entertainment Management.",
+  },
+];
+
 async function seed() {
   await mongoose.connect(MONGODB_URI);
 
@@ -178,6 +186,7 @@ async function seed() {
     Award.deleteMany({}),
     LatestVideo.deleteMany({}),
     FeaturedWork.deleteMany({}),
+    HomeIntro.deleteMany({}),
   ]);
 
   await Promise.all([
@@ -185,6 +194,7 @@ async function seed() {
     Award.insertMany(awards),
     LatestVideo.insertMany(latestVideos),
     FeaturedWork.insertMany(featuredWork),
+    HomeIntro.insertMany(homeIntros),
   ]);
 
   console.log("Seed completed.");
